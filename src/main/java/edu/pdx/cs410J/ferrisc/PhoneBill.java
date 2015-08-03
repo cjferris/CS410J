@@ -1,10 +1,11 @@
 package edu.pdx.cs410J.ferrisc;
 
-import edu.pdx.cs410J.AbstractPhoneCall;
 import edu.pdx.cs410J.AbstractPhoneBill;
+import edu.pdx.cs410J.AbstractPhoneCall;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * @author Christopher
@@ -12,7 +13,7 @@ import java.util.Collection;
 public class PhoneBill extends AbstractPhoneBill {
 
 	protected String Customer;
-	protected Collection<AbstractPhoneCall> phoneCalls;
+	protected Collection<PhoneCall> phoneCalls;
 
 
 	/**
@@ -21,7 +22,7 @@ public class PhoneBill extends AbstractPhoneBill {
 	 */
 	public PhoneBill(String customer) {
 		this.Customer = customer;
-		phoneCalls = new ArrayList<AbstractPhoneCall>();
+		phoneCalls = new ArrayList<PhoneCall>();
 	}
 
 	@Override
@@ -30,12 +31,14 @@ public class PhoneBill extends AbstractPhoneBill {
 	}
 
 	@Override
-	public void addPhoneCall(AbstractPhoneCall PhoneCall) {
-		phoneCalls.add(PhoneCall);
+	public void addPhoneCall(AbstractPhoneCall phoneCall) {
+		phoneCalls.add((PhoneCall) phoneCall);
+		if(phoneCalls.size() > 1)
+			((List<PhoneCall>) phoneCalls).sort((c1, c2) -> c1.compareTo(c2));
 	}
 
 	@Override
-	public Collection getPhoneCalls() {
+	public Collection<PhoneCall> getPhoneCalls() {
 		return phoneCalls;
 	}
 

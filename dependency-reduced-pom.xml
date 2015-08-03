@@ -43,7 +43,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>edu.pdx.cs410J.ferrisc.Project1</mainClass>
+              <mainClass>edu.pdx.cs410J.ferrisc.Project3</mainClass>
             </manifest>
           </archive>
         </configuration>
